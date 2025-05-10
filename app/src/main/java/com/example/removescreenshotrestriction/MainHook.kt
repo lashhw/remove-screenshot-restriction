@@ -16,7 +16,7 @@ class MainHook : IXposedHookLoadPackage {
             Int::class.javaPrimitiveType,
             object : XC_MethodHook() {
                 override fun beforeHookedMethod(param: MethodHookParam) {
-                    var flags: Int = param.args[0] as Int
+                    var flags = param.args[0] as Int
                     flags = flags and android.view.WindowManager.LayoutParams.FLAG_SECURE.inv()
                     param.args[0] = flags
                 }
